@@ -3,6 +3,7 @@ package com.sparta.miniorder.service;
 import com.sparta.miniorder.dto.request.RequestProduct;
 import com.sparta.miniorder.dto.response.ResponseProduct;
 import com.sparta.miniorder.entity.Product;
+import com.sparta.miniorder.exception.ProductNotFoundException;
 import com.sparta.miniorder.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ProductServiceImpl implements ProductService {
+
     private final ProductRepository productRepository;
 
-
     @Override
+    @Transactional
     public ResponseProduct createProduct(RequestProduct request) {
         Product savedProduct = productRepository.save(request.toEntity());
         return ResponseProduct.from(savedProduct);
@@ -25,21 +27,33 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ResponseProduct getProduct(Long id) {
-        return null;
+        return ResponseProduct.from(findProductById(id));
     }
 
     @Override
     public List<ResponseProduct> getProducts() {
-        return List.of();
+        return productRepository.findAll()
+                .stream()
+                .map(ResponseProduct::from)
+                .toList();
     }
 
     @Override
+    @Transactional
     public ResponseProduct updateProduct(Long id, RequestProduct request) {
-        return null;
+        Product product = findProductById(id);
+        product.update(request.getName(), request.getPrice());
+        return ResponseProduct.from(product);
     }
 
     @Override
+    @Transactional
     public void deleteProduct(Long id) {
-        // continue
+        productRepository.delete(findProductById(id));
+    }
+
+    private Product findProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(ProductNotFoundException::new);
     }
 }
