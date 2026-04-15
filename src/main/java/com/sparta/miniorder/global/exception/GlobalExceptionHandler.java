@@ -1,13 +1,13 @@
-package com.sparta.miniorder.exception;
+package com.sparta.miniorder.global.exception;
 
-import java.util.stream.Collectors;
-
-import com.sparta.miniorder.dto.response.ErrorResponse;
+import com.sparta.miniorder.order.dto.response.ErrorResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

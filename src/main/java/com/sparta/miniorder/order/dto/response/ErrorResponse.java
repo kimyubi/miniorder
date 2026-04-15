@@ -1,8 +1,8 @@
-package com.sparta.miniorder.dto.response;
+package com.sparta.miniorder.order.dto.response;
+
+import com.sparta.miniorder.global.exception.ErrorCode;
 
 import java.time.LocalDateTime;
-
-import com.sparta.miniorder.exception.ErrorCode;
 
 public record ErrorResponse(
         String code,
