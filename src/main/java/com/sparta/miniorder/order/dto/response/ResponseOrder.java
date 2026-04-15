@@ -7,6 +7,7 @@ import com.sparta.miniorder.product.entity.Product;
 
 public record ResponseOrder(
         Long orderId,
+        Integer quantity,
         Long productId,
         String productName,
         Integer productPrice
@@ -22,6 +23,7 @@ public record ResponseOrder(
 
         return new ResponseOrder(
                 order.getId(),
+                order.getQuantity(),
                 product.getId(),
                 product.getName(),
                 product.getPrice()
