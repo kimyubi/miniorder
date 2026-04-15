@@ -18,6 +18,8 @@ repositories {
     mavenCentral()
 }
 
+def springdocVersion = '3.0.1'
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-h2console'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -34,6 +36,9 @@ dependencies {
 
     // Validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // api documentation
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
 }
 
 tasks.named('test') {
