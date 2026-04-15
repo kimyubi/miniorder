@@ -1,5 +1,6 @@
 package com.sparta.miniorder.dto.request;
 
+import com.sparta.miniorder.entity.Product;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,4 +17,8 @@ public class RequestProduct {
     @NotNull(message = "{validation.product.price.not-null}")
     @Min(value = 0, message = "{validation.product.price.min}")
     private Integer price;
+
+    public Product toEntity() {
+        return new Product(name, price);
+    }
 }
