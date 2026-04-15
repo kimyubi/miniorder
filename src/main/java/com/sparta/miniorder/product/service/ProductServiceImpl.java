@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ResponseProduct createProduct(RequestProduct request) {
-        Product savedProduct = productRepository.save(request.toEntity());
+    public ResponseProduct createProduct(RequestProduct requestProduct) {
+        Product savedProduct = productRepository.save(requestProduct.toEntity());
         return ResponseProduct.from(savedProduct);
     }
 
@@ -40,9 +40,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ResponseProduct updateProduct(Long id, RequestProduct request) {
+    public ResponseProduct updateProduct(Long id, RequestProduct requestProduct) {
         Product product = findProductById(id);
-        product.update(request.getName(), request.getPrice());
+        product.update(requestProduct.getName(), requestProduct.getPrice());
         return ResponseProduct.from(product);
     }
 
