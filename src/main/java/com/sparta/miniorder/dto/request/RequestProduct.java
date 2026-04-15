@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RequestProduct {
 
-    @NotBlank(message = "상품 이름은 필수입니다.")
+    @NotBlank(message = "{validation.product.name.not-blank}")
     private String name;
 
-    @NotNull(message = "가격은 필수입니다.")
-    @Min(value = 0, message = "가격은 0원 이상이어야 합니다.")
+    @NotNull(message = "{validation.product.price.not-null}")
+    @Min(value = 0, message = "{validation.product.price.min}")
     private Integer price;
 }
