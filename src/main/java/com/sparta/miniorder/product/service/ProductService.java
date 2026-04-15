@@ -1,7 +1,7 @@
-package com.sparta.miniorder.order.service;
+package com.sparta.miniorder.product.service;
 
-import com.sparta.miniorder.order.dto.request.RequestProduct;
-import com.sparta.miniorder.order.dto.response.ResponseProduct;
+import com.sparta.miniorder.product.dto.request.RequestProduct;
+import com.sparta.miniorder.product.dto.response.ResponseProduct;
 import jakarta.validation.Valid;
 
 import java.util.List;
