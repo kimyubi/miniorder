@@ -1,4 +1,4 @@
-package com.sparta.miniorder.exception;
+package com.sparta.miniorder.global.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

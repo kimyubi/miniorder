@@ -1,6 +1,6 @@
-package com.sparta.miniorder.dto.response;
+package com.sparta.miniorder.order.dto.response;
 
-import com.sparta.miniorder.entity.Product;
+import com.sparta.miniorder.order.entity.Product;
 
 import java.util.Objects;
 
