@@ -1,6 +1,5 @@
 package com.sparta.miniorder.global.exception;
 
-import com.sparta.miniorder.product.dto.response.ErrorResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

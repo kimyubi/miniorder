@@ -1,6 +1,4 @@
-package com.sparta.miniorder.product.dto.response;
-
-import com.sparta.miniorder.global.exception.ErrorCode;
+package com.sparta.miniorder.global.exception;
 
 import java.time.LocalDateTime;
 
