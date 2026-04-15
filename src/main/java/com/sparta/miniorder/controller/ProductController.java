@@ -1,4 +1,4 @@
-package com.sparta.miniorder;
+package com.sparta.miniorder.controller;
 
 import com.sparta.miniorder.dto.request.RequestProduct;
 import com.sparta.miniorder.dto.response.ResponseProduct;
