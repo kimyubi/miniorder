@@ -1,6 +1,6 @@
-package com.sparta.miniorder.order.dto.request;
+package com.sparta.miniorder.product.dto.request;
 
-import com.sparta.miniorder.order.entity.Product;
+import com.sparta.miniorder.product.entity.Product;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

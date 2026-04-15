@@ -1,10 +1,10 @@
-package com.sparta.miniorder.order.service;
+package com.sparta.miniorder.product.service;
 
 import com.sparta.miniorder.global.exception.ProductNotFoundException;
-import com.sparta.miniorder.order.dto.request.RequestProduct;
-import com.sparta.miniorder.order.dto.response.ResponseProduct;
-import com.sparta.miniorder.order.entity.Product;
-import com.sparta.miniorder.order.repository.ProductRepository;
+import com.sparta.miniorder.product.dto.request.RequestProduct;
+import com.sparta.miniorder.product.dto.response.ResponseProduct;
+import com.sparta.miniorder.product.entity.Product;
+import com.sparta.miniorder.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

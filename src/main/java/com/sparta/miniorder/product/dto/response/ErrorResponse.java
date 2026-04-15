@@ -1,4 +1,4 @@
-package com.sparta.miniorder.order.dto.response;
+package com.sparta.miniorder.product.dto.response;
 
 import com.sparta.miniorder.global.exception.ErrorCode;
 
