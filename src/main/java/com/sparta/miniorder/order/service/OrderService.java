@@ -5,4 +5,6 @@ import com.sparta.miniorder.order.dto.response.ResponseOrder;
 
 public interface OrderService {
     ResponseOrder createOrder(RequestOrder request);
+
+    ResponseOrder getOrder(Long id);
 }

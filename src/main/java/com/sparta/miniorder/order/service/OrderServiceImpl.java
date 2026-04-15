@@ -8,7 +8,6 @@ import com.sparta.miniorder.order.repository.OrderRepository;
 import com.sparta.miniorder.product.entity.Product;
 import com.sparta.miniorder.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +25,17 @@ public class OrderServiceImpl implements OrderService {
         Product product = findProductById(requestOrder.getProductId());
         Order savedOrder = orderRepository.save(requestOrder.toEntity(product));
         return ResponseOrder.from(savedOrder);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ResponseOrder getOrder(Long id) {
+        return ResponseOrder.from(findOrderById(id));
+    }
+
+    private Order findOrderById(Long id) {
+        return orderRepository.findById(id)
+                .orElseThrow(ProductNotFoundException::new);
     }
 
     private Product findProductById(Long id) {
