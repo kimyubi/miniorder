@@ -1,10 +1,10 @@
-package com.sparta.miniorder.service;
+package com.sparta.miniorder.product.service;
 
-import com.sparta.miniorder.dto.request.RequestProduct;
-import com.sparta.miniorder.dto.response.ResponseProduct;
-import com.sparta.miniorder.entity.Product;
-import com.sparta.miniorder.exception.ProductNotFoundException;
-import com.sparta.miniorder.repository.ProductRepository;
+import com.sparta.miniorder.global.exception.ProductNotFoundException;
+import com.sparta.miniorder.product.dto.request.RequestProduct;
+import com.sparta.miniorder.product.dto.response.ResponseProduct;
+import com.sparta.miniorder.product.entity.Product;
+import com.sparta.miniorder.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ResponseProduct createProduct(RequestProduct request) {
-        Product savedProduct = productRepository.save(request.toEntity());
+    public ResponseProduct createProduct(RequestProduct requestProduct) {
+        Product savedProduct = productRepository.save(requestProduct.toEntity());
         return ResponseProduct.from(savedProduct);
     }
 
@@ -40,9 +40,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ResponseProduct updateProduct(Long id, RequestProduct request) {
+    public ResponseProduct updateProduct(Long id, RequestProduct requestProduct) {
         Product product = findProductById(id);
-        product.update(request.getName(), request.getPrice());
+        product.update(requestProduct.getName(), requestProduct.getPrice());
         return ResponseProduct.from(product);
     }
 
